@@ -46,12 +46,15 @@ async function runScript() {
   }
 
   const validatorIndexes = Array.from(proposerIndexes.values());
-  console.log("PROPOSER INDEXES", validatorIndexes.length);
+  console.log(`Proposer indexes: ${validatorIndexes.length}`);
   fs.writeFileSync(indexedOutputPath, validatorIndexes.join("\n"));
 
   const addresses = await fetchDepositAddresses(validatorIndexes);
-  console.log("ETH1 ADDRESSES", addresses.length);
-  fs.writeFileSync(addressesOutputPath, addresses.join("\n"));
+  const addressesUnique = [...new Set(addresses)];
+  console.log(
+    `Eth1 addresses: ${addressesUnique.length} (total ${addresses.length})`
+  );
+  fs.writeFileSync(addressesOutputPath, addressesUnique.join("\n"));
 }
 
 // LOCAL FILE
