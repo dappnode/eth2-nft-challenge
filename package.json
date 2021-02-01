@@ -1,0 +1,14 @@
+{
+  "name": "eth2-graffiti",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node index"
+  },
+  "dependencies": {
+    "got": "^11.8.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
+}
